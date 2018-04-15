@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "Upload and resize images"
+date:   2018-04-15 13:43:24 +0800
+tags: [javascript, resize, image, plugin]
+permalink: uploadresizeimage.html
+---
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style media="screen">
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .fa.fa-upload {
+    font-size: 50px;
+  }
+  #fileinput {
+    background: #d8f0f7;
+    text-align: center;
+    color: #1e7584;
+    padding: 2em;
+    border: 1px dotted #1e7584;
+    width: 50%;
+    margin: 2em auto;
+    position: relative;
+  }
+  input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 100;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+  .drag-p {
+    font-size: 1.1em;
+  }
+  .btn-upload {
+    outline: 0;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+  }
+  #preview {
+    text-align: center;
+  }
+  .preview_container {
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #aaa;
+  }
+  .delete_preview {
+    display: block;
+    outline: 0;
+    border: 0;
+    margin: 0 auto;
+    color: #0095ff;
+    text-decoration: underline;
+    font-size: 13px;
+  }
+</style>
+<p>This is a demo for the resize image jquery plugin. Feel free to go through the source code 
+<a href="https://github.com/shellophobia/UploadCompressImage/blob/master/jquery_plugin/image_compress_plugin.js">here</a></p>
+<div id="fileinput">
+  <button class="btn-upload"><i class="fas fa-cloud-upload-alt"></i> Click Here to Upload</button>
+  <p class="drag-p">Or Drag N Drop the file</p>
+  <input type="file" multiple="true">
+</div>
+<div id="preview"></div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/image_compress_plugin.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#fileinput").uploadFile({
+    enablePreview: true,
+    appendFileInput: false,
+    autoSubmit: false,
+    previewSelector: "#preview"
+  });
+});
+</script>
